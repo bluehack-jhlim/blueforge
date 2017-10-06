@@ -1,0 +1,38 @@
+{
+  "version": 0.1,
+  "meta": {
+    "endpoint": "http://api.whatsit.net/"
+  },
+  "api": [
+    {
+      "name": "get_project_list",
+      "method": "GET",
+      "uri": "projects/{project_id}",
+      "params": []
+    },
+    {
+      "name": "get_trainset",
+      "method": "GET",
+      "uri": "projects/{}/trainset",
+      "params": [
+        {
+          "name": "format",
+          "type": "string",
+          "require": false,
+          "description": "'pascalvoc', 'mscoco','imagenet','cifar10'"
+        },
+        {
+          "name": "test",
+          "type": "string",
+          "require": false,
+          "description": "'pascalvoc', 'mscoco','imagenet','cifar10'"
+        }
+      ]
+    },
+    {
+      "name": "put_project",
+      "method": "GET",
+      "params": []
+    }
+  ]
+}
