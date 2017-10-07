@@ -4,7 +4,7 @@ import os
 import shutil
 import zipfile
 
-from util import WHATSIT_SDK_PY_ROOT
+from whatsitsdk import WHATSIT_SDK_PY_ROOT
 
 logger = logging.getLogger(__name__)
 

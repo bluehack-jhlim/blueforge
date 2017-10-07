@@ -97,5 +97,5 @@ ENV/
 
 .gitignore
 .idea/
-data/test/
-util/__pycache__/
+whatsitsdk/data/test/
+whatsitsdk/util/__pycache__/

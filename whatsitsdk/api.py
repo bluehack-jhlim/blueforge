@@ -2,14 +2,17 @@ from json import loads
 
 import requests
 
-from util import file
+from whatsitsdk.util import file
 
 
 class Api(object):
     def __init__(self, service_name):
         self.__raw_json = file.get_latest_api_json_file(service_name)
-        for method in self.__raw_json['api']:
-            Api.__create_dynamic_method(self.__raw_json['meta']['endpoint'], method)
+        if self.__raw_json:
+            for method in self.__raw_json['api']:
+                Api.__create_dynamic_method(self.__raw_json['meta']['endpoint'], method)
+        else:
+            raise Exception('The {} service does not exist.'.format(service_name))
 
     @classmethod
     def __create_dynamic_method(cls, endpoint, method_obj):
