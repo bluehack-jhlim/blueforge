@@ -4,7 +4,7 @@ import os
 import shutil
 import zipfile
 
-from whatsitsdk import WHATSIT_SDK_PY_ROOT
+from blueforge import WHATSIT_SDK_PY_ROOT
 
 logger = logging.getLogger(__name__)
 

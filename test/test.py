@@ -1,4 +1,4 @@
-from whatsitsdk.api import Api
+from blueforge.api import Api
 
 whatsit_api = Api('whatsit')
 

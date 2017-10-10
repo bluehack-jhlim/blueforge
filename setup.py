@@ -13,28 +13,30 @@ VERSION_RE = re.compile(r'''__version__ = ['"]([0-9.]+)['"]''')
 
 
 def get_version():
-    init = open(os.path.join(os.path.join(ROOT, 'whatsitsdk'), '__init__.py')).read()
+    init = open(os.path.join(os.path.join(ROOT, 'blueforge'), '__init__.py')).read()
     return VERSION_RE.search(init).group(1)
 
 
 setup(
-    name='whatsitsdk',
+    name='blueforge',
     version=get_version(),
-    description='The Whatsit for Python',
+    description='The Blueforge for Python',
     long_description=open('README.rst').read(),
     author='Bluehack',
-    url='https://github.com/whats-it/whatsitsdk',
+    author_email='jh.lim@bluehack.net',
+    url='https://github.com/BlueHack-Core/blueforge',
     scripts=[],
     packages=find_packages(exclude=['tests*']),
     package_data={
-        'whatsitsdk': [
+        'blueforge': [
             'data/*/*/*.json',
         ]
     },
     include_package_data=True,
     install_requires=requires,
-    license="Apache License 2.0",
+    license='MIT',
     classifiers=[
+        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.6',
         'Development Status :: 1 - Planning',

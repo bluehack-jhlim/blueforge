@@ -2,7 +2,7 @@ from json import loads
 
 import requests
 
-from whatsitsdk.util import file
+from blueforge.util import file
 
 
 class Api(object):

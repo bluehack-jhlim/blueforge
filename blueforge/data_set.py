@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from random import shuffle
 from xml.etree.ElementTree import Element, SubElement
 
-from whatsitsdk.util.file import check_and_create_directories, exclude_extension
+from blueforge.util.file import check_and_create_directories, exclude_extension
 
 
 def get_bnd_box(polygons):
