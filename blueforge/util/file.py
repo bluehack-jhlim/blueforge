@@ -4,7 +4,7 @@ import os
 import shutil
 import zipfile
 
-from blueforge import WHATSIT_SDK_PY_ROOT
+from blueforge import BLUEFORGE_ROOT
 
 logger = logging.getLogger(__name__)
 
@@ -128,9 +128,10 @@ def load_json_file(file_path):
 
 
 def get_latest_api_json_file(service_name):
-    full_path = os.path.join(WHATSIT_SDK_PY_ROOT, os.path.join('data', service_name))
+    full_path = os.path.join(BLUEFORGE_ROOT, os.path.join('data', service_name))
     list_of_service_version = os.listdir(full_path)
 
+    # TODO: Swagger JSON도 파싱이 되도록한다
     # 서브디렉토리가 존재할 경우, 해당 디렉토리 중 최신의 json을 가져온다
     if len(list_of_service_version):
         path_latest_version = sorted(os.listdir(full_path))[-1]

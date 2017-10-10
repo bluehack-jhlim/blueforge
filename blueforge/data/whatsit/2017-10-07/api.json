@@ -8,6 +8,7 @@
       "name": "get_project_list",
       "method": "GET",
       "uri": "/projects",
+      "description": "",
       "params": [
         {
           "name": "userId",
@@ -20,6 +21,7 @@
       "name": "create_a_new_project",
       "method": "POST",
       "uri": "/projects",
+      "description": "",
       "params": [
         {
           "name": "name",
@@ -42,12 +44,14 @@
       "name": "create_pascalvoc_dataset",
       "method": "PUT",
       "uri": "/projects",
+      "description": "",
       "params": []
     },
     {
       "name": "get_trainset",
       "method": "GET",
       "uri": "/projects/{}/trainset",
+      "description": "",
       "params": [
         {
           "name": "format",
@@ -67,6 +71,7 @@
       "name": "add_labels",
       "method": "POST",
       "uri": "/projects/{}/labels",
+      "description": "",
       "params": [
         {
           "name": "name",
@@ -84,12 +89,14 @@
       "name": "get_labels",
       "method": "GET",
       "uri": "/projects/{}/labels",
+      "description": "",
       "params": []
     },
     {
       "name": "get_dataset_list",
       "method": "POST",
       "uri": "/datasets",
+      "description": "",
       "params": [
         {
           "name": "projectId",
@@ -102,6 +109,7 @@
       "name": "get_dataset",
       "method": "GET",
       "uri": "/datasets/{}",
+      "description": "",
       "params": []
     }
   ]
