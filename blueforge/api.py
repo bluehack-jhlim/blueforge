@@ -7,8 +7,12 @@ from blueforge.util import file
 
 
 class Api(object):
-    def __init__(self, service_name):
-        self.__raw_json = file.get_latest_api_json_file(service_name)
+    def __init__(self, service_name, raw_json=None):
+        if raw_json is None:
+            self.__raw_json = file.get_latest_api_json_file(service_name)
+        else:
+            self.__raw_json = raw_json
+
         if self.__raw_json:
             for method in self.__raw_json['api']:
                 Api.__create_dynamic_method(self.__raw_json['meta']['endpoint'], method)

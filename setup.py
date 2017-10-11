@@ -5,7 +5,8 @@ from setuptools import setup, find_packages
 
 requires = [
     'boto3>=1.4.7',
-    'requests>=2.18.4'
+    'requests>=2.18.4',
+    'google-cloud-bigquery>=0.27.0',
 ]
 
 ROOT = os.path.dirname(__file__)
@@ -40,6 +41,5 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.6',
         'Development Status :: 1 - Planning',
-
     ],
 )

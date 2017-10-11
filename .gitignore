@@ -99,3 +99,5 @@ ENV/
 .idea/
 whatsitsdk/data/test/
 whatsitsdk/util/__pycache__/
+
+docs/

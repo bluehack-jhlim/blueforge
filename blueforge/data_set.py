@@ -121,6 +121,7 @@ def insert_image_sets(origin, label, image_file_name):
     return origin
 
 
+# TODO: PROJECT_TEMP_PATH를 OS기본 TEMP 폴더를 사용하도록 한다.
 def make_project_directory(path, project):
     PROJECT_TEMP_PATH = os.path.join(path, project)
     folders = ['data', 'models', 'models/model', 'models/model/eval', 'models/model/train', 'dataset']
