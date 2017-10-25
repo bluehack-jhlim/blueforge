@@ -25,3 +25,10 @@ def make_url(domain, location):
         return 'http://' + url.netloc + url.path
     else:
         return url.geturl()
+
+
+def detect_none_value(origin):
+    for key in origin.keys():
+        if origin[key] is None:
+            del origin[key]
+    return origin
