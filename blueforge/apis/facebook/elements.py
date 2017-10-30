@@ -16,6 +16,6 @@ class Element(object):
         }
         if self.buttons:
             data['buttons'] = [
-                button.to_dict() for button in self.buttons
+                button.get_data() for button in self.buttons
             ]
         return data

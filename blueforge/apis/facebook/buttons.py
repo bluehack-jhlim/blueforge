@@ -12,23 +12,23 @@ class Button(object):
         }
 
         if self.button_type == 'web_url':
-            if data['url'] is None:
+            if self.url is None:
                 raise ValueError('The url value is required')
 
             data['url'] = self.url
 
-            if data['webview_height_ratio']:
+            if self.webview_height_ratio:
                 data['webview_height_ratio'] = self.webview_height_ratio
-            if data['messenger_extensions']:
+            if self.messenger_extensions:
                 data['messenger_extensions'] = self.messenger_extensions
-            if data['fallback_url']:
+            if self.fallback_url:
                 data['fallback_url'] = self.fallback_url
 
         elif self.button_type == 'postback' or self.button_type == 'phone_number':
-            if data['payload']:
+            if self.payload:
                 data['payload'] = self.payload
         elif self.button_type == 'element_share':
-            if data['share_contents']:
+            if self.share_contents:
                 data['share_contents'] = self.share_contents
 
         return data

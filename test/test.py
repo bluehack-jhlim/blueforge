@@ -1,6 +1,10 @@
-from blueforge.api import Api
+from blueforge.apis.facebook import CreateFacebookApiClient
+from blueforge.apis.facebook.message import RequestDataFormat, Recipient, Message
 
-whatsit_api = Api('whatsit')
+client = CreateFacebookApiClient(
+    access_token='EAACCjNQkVwoBAEnHNQbl2xLG5935vSVX8kSsBUTFzYFnB62ZCvZCZCIZCUZAcY9ZCBliQpoUiaMo0uesVct0FkDAHgsxXWjPTZCZC7dZAnhO0kalcN7NtJkuHnelMiHe5O8UAYkQQbDUCPaBShRHl25mG6fCIhm1bBFEt70k21qswZAHTuK4ryGpnr')
 
-print(whatsit_api.get_trainset('59c3a7afadc71eb86c8956eb', format='pascalvoc'))
-print(whatsit_api.get_dataset('59c37325abc7c600134297c5'))
+recipient = Recipient(recipient_id='1053565541409779')
+message = Message(text='Hard Study')
+final_message = RequestDataFormat(recipient=recipient, message=message)
+print(client.send_message(final_message))

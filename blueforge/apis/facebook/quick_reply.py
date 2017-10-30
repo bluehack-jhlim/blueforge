@@ -12,7 +12,7 @@ class QuickReplyItem(object):
         if self.title:
             data['title'] = self.title
 
-        if self.img_url:
+        if self.image_url:
             data['image_url'] = self.image_url
 
         if self.payload:
@@ -44,4 +44,4 @@ class QuickReply(object):
         self.quick_reply_items = quick_reply_items
 
     def get_data(self):
-        return [quick_reply_item.to_dict() for quick_reply_item in self.quick_reply_items]
+        return [quick_reply_item.get_data() for quick_reply_item in self.quick_reply_items]
