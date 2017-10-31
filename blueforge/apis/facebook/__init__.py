@@ -1,8 +1,11 @@
-import json
-
 import requests
 
-from blueforge.apis.facebook.message import RequestDataFormat
+from blueforge.apis.facebook.attachments import *
+from blueforge.apis.facebook.buttons import *
+from blueforge.apis.facebook.elements import *
+from blueforge.apis.facebook.message import *
+from blueforge.apis.facebook.quick_reply import *
+from blueforge.apis.facebook.template import *
 
 
 class FacebookMessageException(Exception):
@@ -17,8 +20,6 @@ class CreateFacebookApiClient(object):
         req = requests.post(url='https://graph.facebook.com/v2.6/me/messages?access_token=%s' % self.access_token,
                             data=json.dumps(message.get_data()),
                             headers={'Content-Type': 'application/json'})
-        if req.status_code != 200:
-            raise FacebookMessageException("Can't send the message to facebook api server")
 
         return req.json()
 

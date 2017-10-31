@@ -2,13 +2,13 @@ import json
 
 
 class Message(object):
-    def __init__(self, text=None, attachment=None, quick_repilies=None):
+    def __init__(self, text=None, attachment=None, quick_replies=None):
         if not text and not attachment:
             raise ValueError('The text or attachment value are required.')
 
         self.text = text
         self.attachment = attachment
-        self.quick_replies = quick_repilies
+        self.quick_replies = quick_replies
 
     def get_data(self):
         data = {}
@@ -21,6 +21,7 @@ class Message(object):
 
         if self.quick_replies:
             data['quick_replies'] = self.quick_replies.get_data()
+
         return data
 
 
@@ -38,7 +39,7 @@ class Recipient(object):
 
 
 class RequestDataFormat(object):
-    def __init__(self, recipient=None, message=None, sender_action=None):
+    def __init__(self, recipient=None, message=None, sender_action=None, notification_type=None):
         if not recipient:
             raise ValueError('The recipient is required.')
 
@@ -48,6 +49,7 @@ class RequestDataFormat(object):
         self.recipient = recipient
         self.message = message
         self.sender_action = sender_action
+        self.notification_type = notification_type
 
     def get_data(self):
         data = {}
@@ -60,6 +62,9 @@ class RequestDataFormat(object):
 
         if self.sender_action:
             data['sender_action'] = self.sender_action
+
+        if self.notification_type:
+            data['notification_type'] = self.notification_type
 
         return data
 
