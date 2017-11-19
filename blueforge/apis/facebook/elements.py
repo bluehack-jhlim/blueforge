@@ -14,6 +14,17 @@ class Element(object):
             'image_url': self.image_url,
             'subtitle': self.subtitle
         }
+        if self.subtitle:
+            if len(self.subtitle) > 80:
+                raise ValueError('The Sub-title variable exceeds the maximum of 80 characters.')
+
+        if self.title:
+            if len(self.title) > 80:
+                raise ValueError('The Title variable exceeds the maximum of 80 characters.')
+
+        if len(self.buttons) > 3:
+            raise ValueError('The Button\' element exceeds the maximum of 3.')
+
         if self.buttons:
             data['buttons'] = [
                 button.get_data() for button in self.buttons

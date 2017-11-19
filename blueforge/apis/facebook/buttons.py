@@ -6,6 +6,9 @@ class Button(object):
         if self.button_type is None or self.title is None:
             raise ValueError('The button type and title value are required')
 
+        if len(self.title) > 20:
+            raise ValueError('The Title variable exceeds the maximum of 20 characters.')
+
         data = {
             'type': self.button_type,
             'title': self.title

@@ -8,6 +8,9 @@ class Template(object):
         }
 
         if self.elements:
+            if len(self.elements) > 10:
+                raise ValueError('The Element exceeds the maximum of 10.')
+
             data['elements'] = self.elements
 
         if self.url:
@@ -17,7 +20,10 @@ class Template(object):
             data['text'] = self.text
 
         if self.buttons:
-            data['buttos'] = self.button
+            if len(self.buttons) > 3:
+                raise ValueError('The Buttons exceeds the maximum of 10.')
+
+            data['buttons'] = self.buttons
 
 
 class ButtonTemplate(Template):
