@@ -41,17 +41,21 @@ class Recipient(object):
 
 
 class RequestDataFormat(object):
-    def __init__(self, recipient=None, message=None, sender_action=None, notification_type=None):
+    def __init__(self, recipient=None, message=None, sender_action=None, notification_type=None, message_type=None):
         if not recipient:
             raise ValueError('The recipient is required.')
 
         if not message and not sender_action:
             raise ValueError('The message or sender action value are required.')
 
+        if not sender_action and not message_type:
+            raise ValueError('The message type value are required.')
+
         self.recipient = recipient
         self.message = message
         self.sender_action = sender_action
         self.notification_type = notification_type
+        self.message_type = message_type
 
     def get_data(self):
         data = {}
@@ -67,6 +71,9 @@ class RequestDataFormat(object):
 
         if self.notification_type:
             data['notification_type'] = self.notification_type
+
+        if self.message_type:
+            data['message_type'] = self.message_type
 
         return data
 
