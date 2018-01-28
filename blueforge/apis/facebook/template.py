@@ -7,23 +7,32 @@ class Template(object):
             'template_type': self.template_type,
         }
 
-        if self.elements:
+        if hasattr(self, 'elements'):
             if len(self.elements) > 10:
                 raise ValueError('The Element exceeds the maximum of 10.')
 
-            data['elements'] = self.elements
+            data['elements'] = [element.get_data() for element in self.elements]
 
-        if self.url:
-            data['url'] = self.url
+        if hasattr(self, 'url'):
+            if self.url:
+                data['url'] = self.url
 
-        if self.text:
-            data['text'] = self.text
+        if hasattr(self, 'top_element_style'):
+            if self.top_element_style:
+                data['top_element_style'] = self.top_element_style
 
-        if self.buttons:
-            if len(self.buttons) > 3:
-                raise ValueError('The Buttons exceeds the maximum of 10.')
+        if hasattr(self, 'text'):
+            if self.text:
+                data['text'] = self.text
 
-            data['buttons'] = self.buttons
+        if hasattr(self, 'buttons'):
+            if self.buttons:
+                if len(self.buttons) > 3:
+                    raise ValueError('The Buttons exceeds the maximum of 10.')
+
+                data['buttons'] = [button.get_data() for button in self.buttons]
+
+        return data
 
 
 class ButtonTemplate(Template):
@@ -45,9 +54,10 @@ class GenericTemplate(Template):
 class ListTemplate(Template):
     template_type = 'list'
 
-    def __init__(self, elements=None, top_element_style=None):
+    def __init__(self, elements=None, top_element_style=None, buttons=None):
         self.elements = elements
         self.top_element_style = top_element_style
+        self.buttons = buttons
 
 
 class OpenGraphTemplate(Template):

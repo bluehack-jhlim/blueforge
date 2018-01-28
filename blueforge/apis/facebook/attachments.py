@@ -3,7 +3,10 @@ class Attachment(object):
         self.payload = payload
 
     def get_data(self):
-        return {'type': self.type, 'payload': self.payload}
+        if type(self.payload) is dict:
+            return {'type': self.type, 'payload': self.payload}
+
+        return {'type': self.type, 'payload': self.payload.get_data()}
 
 
 class TemplateAttachment(Attachment):

@@ -20,7 +20,7 @@ class CreateFacebookApiClient(object):
         req = requests.post(url='https://graph.facebook.com/v2.6/me/messages?access_token=%s' % self.access_token,
                             data=json.dumps(message.get_data()),
                             headers={'Content-Type': 'application/json'},
-                            timeout=5)
+                            timeout=30)
 
         return req.json()
 
