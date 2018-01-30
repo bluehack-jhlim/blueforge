@@ -7,7 +7,7 @@ class Button(object):
             raise ValueError('The button type and title value are required')
 
         if len(self.title) > 20:
-            raise ValueError('The Title variable exceeds the maximum of 20 characters.')
+            raise RuntimeWarning('The Title variable exceeds the maximum of 20 characters.')
 
         data = {
             'type': self.button_type,
@@ -70,4 +70,4 @@ class PhoneNumberButton(Button):
 
     def __init__(self, payload=None):
         self.payload = payload
-        super
+        super(PhoneNumberButton, self).__init__(title=None)

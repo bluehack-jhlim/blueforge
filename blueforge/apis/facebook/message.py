@@ -15,7 +15,7 @@ class Message(object):
 
         if self.text:
             if len(self.text) > 640:
-                raise ValueError('The Text variable exceeds the maximum of 640 characters.')
+                raise RuntimeWarning('The Text variable exceeds the maximum of 640 characters.')
             data['text'] = self.text
 
         if self.attachment:

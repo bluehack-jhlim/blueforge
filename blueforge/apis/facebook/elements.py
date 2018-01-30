@@ -14,18 +14,18 @@ class Element(object):
         }
         if self.subtitle:
             if len(self.subtitle) > 80:
-                raise ValueError('The Sub-title variable exceeds the maximum of 80 characters.')
+                raise RuntimeWarning('The Sub-title variable exceeds the maximum of 80 characters.')
 
         if self.title:
             if len(self.title) > 80:
-                raise ValueError('The Title variable exceeds the maximum of 80 characters.')
+                raise RuntimeWarning('The Title variable exceeds the maximum of 80 characters.')
 
         if self.default_action:
             data['default_action'] = self.default_action
 
         if self.buttons:
             if len(self.buttons) > 3:
-                raise ValueError('The Button\' element exceeds the maximum of 3.')
+                raise RuntimeWarning('The Button\' element exceeds the maximum of 3.')
 
             data['buttons'] = [
                 button.get_data() for button in self.buttons

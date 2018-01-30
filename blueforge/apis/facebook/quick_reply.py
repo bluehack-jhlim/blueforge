@@ -11,7 +11,7 @@ class QuickReplyItem(object):
 
         if self.title:
             if len(self.title) > 20:
-                raise ValueError('The Title variable exceeds the maximum of 20 characters.')
+                raise RuntimeWarning('The Title variable exceeds the maximum of 20 characters.')
             data['title'] = self.title
 
         if self.image_url:
@@ -19,7 +19,7 @@ class QuickReplyItem(object):
 
         if self.payload:
             if len(self.payload) > 1000:
-                raise ValueError('The Payload variable exceeds the maximum of 1000 characters.')
+                raise RuntimeWarning('The Payload variable exceeds the maximum of 1000 characters.')
             data['payload'] = self.payload
 
         return data
