@@ -63,7 +63,9 @@ class RequestDataFormat(object):
         if self.recipient:
             data['recipient'] = self.recipient.get_data()
 
-        if self.message:
+        if self.message and type(self.message) is dict:
+            data['message'] = self.message
+        elif self.message:
             data['message'] = self.message.get_data()
 
         if self.sender_action:
