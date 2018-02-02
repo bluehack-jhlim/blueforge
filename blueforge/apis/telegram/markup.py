@@ -5,7 +5,13 @@ class MarkUpContainer(object):
     def get_data(self):
         data = {}
         if hasattr(self, 'inline_keyboard') and self.inline_keyboard:
-            data['inline_keyboard'] = [inline.get_data() for inline in self.inline_keyboard]
+            data['inline_keyboard'] = []
+
+            for inline in self.inline_keyboard:
+                temp = []
+                for sub_inline in inline:
+                    temp.append(sub_inline.get_data())
+                data['inline_keyboard'].append(temp)
 
         return data
 

@@ -9,7 +9,7 @@ class EditMessage(object):
         data = {}
 
         if hasattr(self, 'reply_markup') and self.reply_markup:
-            data['reply_markup'] = [markup.get_data() for markup in self.reply_markup]
+            data['reply_markup'] = self.reply_markup.get_data()
 
         if hasattr(self, 'text') and self.text:
             data['text'] = self.text
