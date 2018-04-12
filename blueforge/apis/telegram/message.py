@@ -93,9 +93,10 @@ class SendPhoto(Message):
     method = 'sendPhoto'
 
     def __init__(self, photo, caption=None, disable_notification=None, reply_to_message_id=None,
-                 reply_markup=None):
+                 reply_markup=None, parse_mode=None):
         self.photo = photo
         self.caption = caption
+        self.parse_mode = parse_mode
         super(SendPhoto, self).__init__(reply_to_message_id=reply_to_message_id,
                                         disable_notification=disable_notification, reply_markup=reply_markup)
 
@@ -104,12 +105,13 @@ class SendAudio(Message):
     method = 'sendAudio'
 
     def __init__(self, audio, caption=None, duration=None, performer=None, title=None,
-                 disable_notification=None, reply_to_message_id=None, reply_markup=None):
+                 disable_notification=None, reply_to_message_id=None, reply_markup=None, parse_mode=None):
         self.audio = audio
         self.caption = caption
         self.duration = duration
         self.performer = performer
         self.title = title
+        self.parse_mode = parse_mode
         super(SendAudio, self).__init__(reply_to_message_id=reply_to_message_id,
                                         disable_notification=disable_notification, reply_markup=reply_markup)
 
@@ -118,9 +120,10 @@ class SendDocument(Message):
     method = 'sendDocument'
 
     def __init__(self, document, caption=None, disable_notification=None, reply_to_message_id=None,
-                 reply_markup=None):
+                 reply_markup=None, parse_mode=None):
         self.document = document
         self.caption = caption
+        self.parse_mode = parse_mode
         super(SendDocument, self).__init__(reply_to_message_id=reply_to_message_id,
                                            disable_notification=disable_notification, reply_markup=reply_markup)
 
@@ -129,12 +132,13 @@ class SendVideo(Message):
     method = 'sendVideo'
 
     def __init__(self, video, caption=None, duration=None, width=None, height=None,
-                 disable_notification=None, reply_to_message_id=None, reply_markup=None):
+                 disable_notification=None, reply_to_message_id=None, reply_markup=None, parse_mode=None):
         self.video = video
         self.caption = caption
         self.duration = duration
         self.width = width
         self.height = height
+        self.parse_mode = parse_mode
         super(SendVideo, self).__init__(reply_to_message_id=reply_to_message_id,
                                         disable_notification=disable_notification, reply_markup=reply_markup)
 

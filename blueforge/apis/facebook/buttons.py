@@ -6,13 +6,12 @@ class Button(object):
         if self.button_type is None or self.title is None:
             raise ValueError('The button type and title value are required')
 
-        if len(self.title) > 20:
-            raise RuntimeWarning('The Title variable exceeds the maximum of 20 characters.')
-
         data = {
-            'type': self.button_type,
-            'title': self.title
+            'type': self.button_type
         }
+
+        if self.title is not None:
+            data['title'] = self.title
 
         if self.button_type == 'web_url':
             if self.url is None:
@@ -68,6 +67,7 @@ class ShareButton(Button):
 class PhoneNumberButton(Button):
     button_type = 'phone_number'
 
-    def __init__(self, payload=None):
+    def __init__(self, title=None, payload=None):
+        self.title = title
         self.payload = payload
-        super(PhoneNumberButton, self).__init__(title=None)
+        super(PhoneNumberButton, self).__init__(title=title)

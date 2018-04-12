@@ -28,7 +28,7 @@ class Template(object):
         if hasattr(self, 'buttons'):
             if self.buttons:
                 if len(self.buttons) > 3:
-                    raise RuntimeWarning('The Buttons exceeds the maximum of 10.')
+                    raise RuntimeWarning('The Buttons exceeds the maximum of 3.')
 
                 data['buttons'] = [button.get_data() for button in self.buttons]
 

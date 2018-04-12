@@ -9,18 +9,16 @@ class QuickReplyItem(object):
             'content_type': self.content_type
         }
 
-        if self.title:
-            if len(self.title) > 20:
-                raise RuntimeWarning('The Title variable exceeds the maximum of 20 characters.')
-            data['title'] = self.title
+        if hasattr(self, 'title'):
+            if self.title:
+                data['title'] = self.title
 
         if self.image_url:
             data['image_url'] = self.image_url
 
-        if self.payload:
-            if len(self.payload) > 1000:
-                raise RuntimeWarning('The Payload variable exceeds the maximum of 1000 characters.')
-            data['payload'] = self.payload
+        if hasattr(self, 'payload'):
+            if self.payload:
+                data['payload'] = self.payload
 
         return data
 

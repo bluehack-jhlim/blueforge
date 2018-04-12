@@ -37,7 +37,7 @@ class AudioAttachment(Attachment):
             'is_reusable': is_reusable
         }
 
-        super(ImageAttachment, self).__init__(payload)
+        super(AudioAttachment, self).__init__(payload)
 
 
 class VideoAttachment(Attachment):
@@ -49,7 +49,7 @@ class VideoAttachment(Attachment):
             'is_reusable': is_reusable
         }
 
-        super(ImageAttachment, self).__init__(payload)
+        super(VideoAttachment, self).__init__(payload)
 
 
 class FileAttachment(Attachment):
@@ -61,4 +61,48 @@ class FileAttachment(Attachment):
             'is_reusable': is_reusable
         }
 
-        super(ImageAttachment, self).__init__(payload)
+        super(FileAttachment, self).__init__(payload)
+
+
+class ImageAttachmentById(Attachment):
+    type = 'image'
+
+    def __init__(self, attachment_id):
+        payload = {
+            'attachment_id': attachment_id
+        }
+
+        super(ImageAttachmentById, self).__init__(payload)
+
+
+class FileAttachmentById(Attachment):
+    type = 'file'
+
+    def __init__(self, attachment_id):
+        payload = {
+            'attachment_id': attachment_id
+        }
+
+        super(FileAttachmentById, self).__init__(payload)
+
+
+class AudioAttachmentById(Attachment):
+    type = 'audio'
+
+    def __init__(self, attachment_id):
+        payload = {
+            'attachment_id': attachment_id
+        }
+
+        super(AudioAttachmentById, self).__init__(payload)
+
+
+class VideoAttachmentById(Attachment):
+    type = 'video'
+
+    def __init__(self, attachment_id):
+        payload = {
+            'attachment_id': attachment_id
+        }
+
+        super(VideoAttachmentById, self).__init__(payload)

@@ -12,13 +12,6 @@ class Element(object):
         data = {
             'title': self.title,
         }
-        if self.subtitle:
-            if len(self.subtitle) > 80:
-                raise RuntimeWarning('The Sub-title variable exceeds the maximum of 80 characters.')
-
-        if self.title:
-            if len(self.title) > 80:
-                raise RuntimeWarning('The Title variable exceeds the maximum of 80 characters.')
 
         if self.default_action:
             data['default_action'] = self.default_action
